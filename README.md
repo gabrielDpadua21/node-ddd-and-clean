@@ -1,4 +1,4 @@
-# Tamplete - Node Typescript Project Api
+# Project - Api do Study DDD, Clean Code and Clean Arch 💻
 
 ---
 
@@ -11,6 +11,16 @@
 </div>
 
 ---
+
+## Description
+
+This a simple project to study concepts to solid, clean code and clean architecture.
+
+## Architecture version 1.0
+
+![architeture design](./docs//arquitetura/arch-v1.png)
+
+---
 ## Installation
 
 ```bash
@@ -21,6 +31,12 @@ $ yarn install
 
 ```bash
 $ yarn start
+```
+
+## Running Unit Tests
+
+```bash
+$ yarn test
 ```
 
 
