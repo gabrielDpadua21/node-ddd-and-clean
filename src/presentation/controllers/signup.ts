@@ -1,5 +1,5 @@
 export class SignUpController {
   async handle (request: any): Promise<any> {
-    return { ok: true, statusCode: 400 }
+    return { body: new Error('Missing param: name'), statusCode: 400 }
   }
 }
