@@ -2,46 +2,28 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 class Customer {
   private _name: string
-  private _email: string
-  private _address: string
+  private readonly _email: string
+  private readonly _address: string
   private _active: boolean
 
-  constructor (name, email, address) {
+  constructor (name: string, email: string, address: string) {
     this._name = name
     this._email = email
     this._address = address
     this._active = false
+    this.validate()
   }
 
-  get name (): string {
-    return this._name
+  private validate (): void {
+    if (this._email) throw new Error('Email is required')
+    if (this._name) throw new Error('Name is required')
   }
 
-  get email (): string {
-    return this._email
+  public changeName (name: string): void {
+    this._name = name
   }
 
-  get address (): string {
-    return this._address
-  }
-
-  get active (): boolean {
-    return this._active
-  }
-
-  set name (value: string) {
-    this._name = value
-  }
-
-  set active (value: boolean) {
-    this._active = value
-  }
-
-  set email (value: string) {
-    this._email = value
-  }
-
-  set address (value: string) {
-    this._address = value
+  public toggleActive (): void {
+    this._active = !this._active
   }
 }
