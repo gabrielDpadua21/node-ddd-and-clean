@@ -1,12 +1,14 @@
+import Address from './address'
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-class Customer {
+export default class Customer {
+  private readonly _id: string
   private _name: string
   private readonly _email: string
-  private readonly _address: string
+  private _address: Address
   private _active: boolean
 
-  constructor (name: string, email: string, address: string) {
+  constructor (id: string, name: string, email: string, address: Address) {
+    this._id = id
     this._name = name
     this._email = email
     this._address = address
@@ -15,8 +17,9 @@ class Customer {
   }
 
   private validate (): void {
-    if (this._email) throw new Error('Email is required')
-    if (this._name) throw new Error('Name is required')
+    if (this._id.length === 0) throw new Error('Id is required')
+    if (this._email.length === 0) throw new Error('Email is required')
+    if (this._name.length === 0) throw new Error('Name is required')
   }
 
   public changeName (name: string): void {
@@ -25,5 +28,9 @@ class Customer {
 
   public toggleActive (): void {
     this._active = !this._active
+  }
+
+  public changeAddress (street: string, number: number, complement: string, city: string, state: string): void {
+    this._address = new Address(street, number, complement, city, state)
   }
 }
