@@ -1,3 +1,4 @@
+import { MissinParamError } from '../errors/missing-param-error'
 import { SignUpController } from './signup'
 
 describe('SignUp Controller', () => {
@@ -12,7 +13,7 @@ describe('SignUp Controller', () => {
     }
     const response = await sut.handle(request)
     expect(response.statusCode).toBe(400)
-    expect(response.body).toStrictEqual(new Error('Missing param: name'))
+    expect(response.body).toStrictEqual(new MissinParamError('name'))
   })
 
   test('Should return 400 id no email is provided', async () => {
@@ -26,6 +27,6 @@ describe('SignUp Controller', () => {
     }
     const response = await sut.handle(request)
     expect(response.statusCode).toBe(400)
-    expect(response.body).toStrictEqual(new Error('Missing param: email'))
+    expect(response.body).toStrictEqual(new MissinParamError('email'))
   })
 })
