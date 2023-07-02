@@ -7,11 +7,10 @@ export default class Customer {
   private _address: Address
   private _active: boolean
 
-  constructor (id: string, name: string, email: string, address: Address) {
+  constructor (id: string, name: string, email: string) {
     this._id = id
     this._name = name
     this._email = email
-    this._address = address
     this._active = false
     this.validate()
   }
