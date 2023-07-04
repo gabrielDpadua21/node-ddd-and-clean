@@ -8,4 +8,8 @@ export default class OrderItem {
     this._name = name
     this._price = price
   }
+
+  public getPrice (): number {
+    return this._price
+  }
 }

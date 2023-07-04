@@ -16,4 +16,8 @@ export default class Order {
   public addItem (item: OrderItem): void {
     this._items.push(item)
   }
+
+  public total (): number {
+    return this._items.reduce((acc, item) => acc + item.getPrice(), 0)
+  }
 }
