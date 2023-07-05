@@ -1,4 +1,4 @@
-import { InvalidParamError, MissinParamError } from '../errors/missing-param-error'
+import { InvalidParamError, MissinParamError, ServerError } from '../errors/missing-param-error'
 import { SignUpController } from './signup'
 import { EmailValidator } from '../protocols/email-validator'
 
@@ -107,5 +107,26 @@ describe('SignUp Controller', () => {
     }
     await sut.handle(request)
     expect(isValidSpy).toHaveBeenCalledWith('any_email@example.com')
+  })
+
+  test('Should return 500 if EmailValidator throws', async () => {
+    class EmailValidatorStub implements EmailValidator {
+      isValid (email: string): boolean {
+        throw new Error()
+      }
+    }
+    const emailValidatorStub = new EmailValidatorStub()
+    const sut = new SignUpController(emailValidatorStub)
+    const request = {
+      body: {
+        name: 'any_name',
+        email: 'any_email@example.com',
+        password: 'any_password',
+        passwordConfirmation: 'any_password'
+      }
+    }
+    const response = await sut.handle(request)
+    expect(response.statusCode).toBe(500)
+    expect(response.body).toStrictEqual(new ServerError())
   })
 })
