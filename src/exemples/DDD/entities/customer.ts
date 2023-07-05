@@ -21,6 +21,22 @@ export default class Customer {
     if (this._name.length === 0) throw new Error('Name is required')
   }
 
+  public get id (): string {
+    return this._id
+  }
+
+  public get name (): string {
+    return this._name
+  }
+
+  public get email (): string {
+    return this._email
+  }
+
+  public get active (): boolean {
+    return this._active
+  }
+
   public changeName (name: string): void {
     this._name = name
   }
