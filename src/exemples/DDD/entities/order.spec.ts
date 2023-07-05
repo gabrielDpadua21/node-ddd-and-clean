@@ -23,9 +23,17 @@ describe('Order entity', () => {
     }).toThrowError('Does not have items')
   })
 
-  test('It return total one item', async () => {
+  test('It return total price order', async () => {
     const item = new OrderItem('1', 'name', 1)
-    const order = new Order('1', '1', [item], 1)
-    expect(order.total()).toBe(1)
+    const item2 = new OrderItem('2', 'name', 2)
+    const order = new Order('1', '1', [item, item2], 1)
+    expect(order.total()).toBe(3)
+  })
+
+  test('It shuold return total itens order', async () => {
+    const item = new OrderItem('1', 'name', 1)
+    const item2 = new OrderItem('2', 'name', 2)
+    const order = new Order('1', '1', [item, item2], 1)
+    expect(order.totalItems()).toBe(2)
   })
 })
