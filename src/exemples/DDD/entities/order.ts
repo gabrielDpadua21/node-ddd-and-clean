@@ -23,7 +23,7 @@ export default class Order {
   }
 
   public total (): number {
-    return this._items.reduce((acc, item) => acc + item.getPrice(), 0)
+    return this._items.reduce((acc, item) => acc + item.getTotalPrice(), 0)
   }
 
   public totalItems (): number {
