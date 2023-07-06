@@ -27,6 +27,6 @@ export default class Order {
   }
 
   public totalItems (): number {
-    return this._items.length
+    return this._items.reduce((acc, item) => acc + item.quantity, 0)
   }
 }
