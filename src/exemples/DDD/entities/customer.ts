@@ -6,6 +6,7 @@ export default class Customer {
   private readonly _email: string
   private _address: Address
   private _active: boolean
+  private _rewardPoints: number = 0
 
   constructor (id: string, name: string, email: string) {
     this._id = id
@@ -23,6 +24,10 @@ export default class Customer {
 
   public get id (): string {
     return this._id
+  }
+
+  public get rewardPoints (): number {
+    return this._rewardPoints
   }
 
   public get name (): string {
@@ -47,5 +52,9 @@ export default class Customer {
 
   public changeAddress (street: string, number: number, complement: string, city: string, state: string): void {
     this._address = new Address(street, number, complement, city, state)
+  }
+
+  public addRewardPoints (points: number): void {
+    this._rewardPoints += points
   }
 }
