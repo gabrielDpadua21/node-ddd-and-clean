@@ -40,4 +40,10 @@ describe('Customer entity', () => {
     customer.toggleActive()
     expect(customer.active).toBe(false)
   })
+
+  test('Should add reward pointer', async () => {
+    const customer = new Customer('1', 'name', 'email')
+    customer.addRewardPoints(10)
+    expect(customer.rewardPoints).toBe(10)
+  })
 })
