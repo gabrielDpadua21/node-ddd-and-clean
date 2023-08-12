@@ -1,6 +1,6 @@
-import Customer from './entities/customer'
-import Order from './entities/order'
-import OrderItem from './entities/orderItem'
+import Customer from './domain/entities/customer'
+import Order from './domain/entities/order'
+import OrderItem from './domain/entities/orderItem'
 
 // AGGRETATES CUSTOMER
 const customer = new Customer('1', 'name', 'email')
