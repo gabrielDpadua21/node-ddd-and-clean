@@ -42,6 +42,10 @@ export default class Customer {
     return this._active
   }
 
+  public get address (): Address {
+    return this._address
+  }
+
   public changeName (name: string): void {
     this._name = name
   }

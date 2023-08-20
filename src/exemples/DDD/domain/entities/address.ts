@@ -19,4 +19,24 @@ export default class Address {
     if (this._city.length === 0) throw new Error('City is required')
     if (this._state.length === 0) throw new Error('State is required')
   }
+
+  get street (): string {
+    return this._street
+  }
+
+  get number (): number {
+    return this._number
+  }
+
+  get complement (): string {
+    return this._complement
+  }
+
+  get city (): string {
+    return this._city
+  }
+
+  get state (): string {
+    return this._state
+  }
 }
